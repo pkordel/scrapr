@@ -14,6 +14,7 @@ pages = []
 links.each { |l| pages << [l.text.gsub(/\r\n\s+/, ''), l[:href]] }
 
 page = agent.get(base_url + pages.first.last)
-links = page.search("//a[starts-with(@href, 'http://www.deich.folkebibl.no/cgi-bin/')]")
+#links = page.search("//a[starts-with(@href, 'http://www.deich.folkebibl.no/cgi-bin/')]")
+links = page.search("//td/a[descendant::img]")
 
 puts links.size
